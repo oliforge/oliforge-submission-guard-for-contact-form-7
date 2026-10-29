@@ -82,8 +82,8 @@ class OliForge_CF7SG_Settings {
 
     public function menu() {
         add_menu_page(
-            __( 'OliForge CF7 Submission Guard', 'oliforge-cf7-submission-guard' ),
-            __( 'Submission Guard', 'oliforge-cf7-submission-guard' ),
+            __( 'OliForge Submission Guard for Contact Form 7', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Submission Guard', 'oliforge-submission-guard-for-contact-form-7' ),
             'manage_options',
             'oliforge-cf7-submission-guard',
             array( $this, 'render_dashboard' ),
@@ -92,24 +92,24 @@ class OliForge_CF7SG_Settings {
         );
         add_submenu_page(
             'oliforge-cf7-submission-guard',
-            __( 'OliForge CF7 Submission Guard Dashboard', 'oliforge-cf7-submission-guard' ),
-            __( 'Dashboard', 'oliforge-cf7-submission-guard' ),
+            __( 'OliForge Submission Guard for Contact Form 7 Dashboard', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Dashboard', 'oliforge-submission-guard-for-contact-form-7' ),
             'manage_options',
             'oliforge-cf7-submission-guard',
             array( $this, 'render_dashboard' )
         );
         add_submenu_page(
             'oliforge-cf7-submission-guard',
-            __( 'OliForge CF7 Submission Guard Settings', 'oliforge-cf7-submission-guard' ),
-            __( 'Settings', 'oliforge-cf7-submission-guard' ),
+            __( 'OliForge Submission Guard for Contact Form 7 Settings', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Settings', 'oliforge-submission-guard-for-contact-form-7' ),
             'manage_options',
             'oliforge-cf7-submission-guard-settings',
             array( $this, 'render_settings' )
         );
         add_submenu_page(
             'oliforge-cf7-submission-guard',
-            __( 'OliForge CF7 Submission Guard Logs', 'oliforge-cf7-submission-guard' ),
-            __( 'Logs', 'oliforge-cf7-submission-guard' ),
+            __( 'OliForge Submission Guard for Contact Form 7 Logs', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Logs', 'oliforge-submission-guard-for-contact-form-7' ),
             'manage_options',
             'oliforge-cf7-submission-guard-logs',
             array( $this, 'render_logs' )
@@ -302,7 +302,7 @@ class OliForge_CF7SG_Settings {
         echo '<div class="oliforge-field">';
         printf( '<label class="oliforge-field__label" for="%1$s">%2$s</label>', esc_attr( $id ), esc_html( $label ) );
         printf( '<select id="%1$s" name="%2$s[forms][%3$s][%4$s]">', esc_attr( $id ), esc_attr( self::OPTION ), esc_attr( $form_id ), esc_attr( $name ) );
-        printf( '<option value="">%s</option>', esc_html__( 'Not assigned', 'oliforge-cf7-submission-guard' ) );
+        printf( '<option value="">%s</option>', esc_html__( 'Not assigned', 'oliforge-submission-guard-for-contact-form-7' ) );
         foreach ( $fields as $field ) {
             $field_name = $field['name'];
             $caption = $field_name . ' — ' . $field['type'];
@@ -335,7 +335,7 @@ class OliForge_CF7SG_Settings {
         $selected = isset( $profile['content_fields'] ) ? (array) $profile['content_fields'] : array();
         echo '<hr class="oliforge-divider">';
         echo '<div class="oliforge-field oliforge-field--wide">';
-        printf( '<h3 class="oliforge-section-title">%s</h3>', esc_html__( 'Fields checked by content rules', 'oliforge-cf7-submission-guard' ) );
+        printf( '<h3 class="oliforge-section-title">%s</h3>', esc_html__( 'Fields checked by content rules', 'oliforge-submission-guard-for-contact-form-7' ) );
         echo '<div class="oliforge-field-options">';
         foreach ( $fields as $field ) {
             if ( in_array( $field['name'], $exclude, true ) || in_array( $field['basetype'], array( 'select', 'country_select' ), true ) ) { continue; }
@@ -354,14 +354,14 @@ class OliForge_CF7SG_Settings {
         ?>
         <div class="oliforge-header">
             <div class="oliforge-header__brand">
-                <img class="oliforge-header__logo" src="<?php echo esc_url( OLIFORGE_CF7SG_URL . 'src/OliForge_logo.png' ); ?>" alt="<?php esc_attr_e( 'OliForge', 'oliforge-cf7-submission-guard' ); ?>" width="64" height="64">
+                <img class="oliforge-header__logo" src="<?php echo esc_url( OLIFORGE_CF7SG_URL . 'assets/images/oliforge-logo.png' ); ?>" alt="<?php esc_attr_e( 'OliForge', 'oliforge-submission-guard-for-contact-form-7' ); ?>" width="64" height="64">
                 <div class="oliforge-header__brandtext">
-                    <span class="oliforge-header__name"><?php esc_html_e( 'OliForge', 'oliforge-cf7-submission-guard' ); ?></span>
-                    <span class="oliforge-header__tagline"><?php esc_html_e( 'Engineering without complexity.', 'oliforge-cf7-submission-guard' ); ?></span>
+                    <span class="oliforge-header__name"><?php esc_html_e( 'OliForge', 'oliforge-submission-guard-for-contact-form-7' ); ?></span>
+                    <span class="oliforge-header__tagline"><?php esc_html_e( 'Engineering without complexity.', 'oliforge-submission-guard-for-contact-form-7' ); ?></span>
                 </div>
             </div>
             <div class="oliforge-header__title">
-                <h1><?php esc_html_e( 'Submission Guard', 'oliforge-cf7-submission-guard' ); ?> <span class="oliforge-accent"><?php echo esc_html( $title_accent ); ?></span></h1>
+                <h1><?php esc_html_e( 'Submission Guard', 'oliforge-submission-guard-for-contact-form-7' ); ?> <span class="oliforge-accent"><?php echo esc_html( $title_accent ); ?></span></h1>
                 <span class="oliforge-badge oliforge-badge--version">v<?php echo esc_html( OLIFORGE_CF7SG_VERSION ); ?></span>
             </div>
         </div>
@@ -374,9 +374,9 @@ class OliForge_CF7SG_Settings {
      */
     private function render_nav_tabs( $current ) {
         $tabs = array(
-            'dashboard' => array( 'label' => __( 'Dashboard', 'oliforge-cf7-submission-guard' ), 'page' => 'oliforge-cf7-submission-guard' ),
-            'settings'  => array( 'label' => __( 'Settings', 'oliforge-cf7-submission-guard' ), 'page' => 'oliforge-cf7-submission-guard-settings' ),
-            'logs'      => array( 'label' => __( 'Logs', 'oliforge-cf7-submission-guard' ), 'page' => 'oliforge-cf7-submission-guard-logs' ),
+            'dashboard' => array( 'label' => __( 'Dashboard', 'oliforge-submission-guard-for-contact-form-7' ), 'page' => 'oliforge-cf7-submission-guard' ),
+            'settings'  => array( 'label' => __( 'Settings', 'oliforge-submission-guard-for-contact-form-7' ), 'page' => 'oliforge-cf7-submission-guard-settings' ),
+            'logs'      => array( 'label' => __( 'Logs', 'oliforge-submission-guard-for-contact-form-7' ), 'page' => 'oliforge-cf7-submission-guard-logs' ),
         );
         ?>
         <nav class="oliforge-tabs">
@@ -396,43 +396,43 @@ class OliForge_CF7SG_Settings {
         ?>
         <div class="wrap oliforge-cf7sg-ui">
             <?php
-            $this->render_brand_header( __( 'Dashboard', 'oliforge-cf7-submission-guard' ) );
+            $this->render_brand_header( __( 'Dashboard', 'oliforge-submission-guard-for-contact-form-7' ) );
             $this->render_nav_tabs( 'dashboard' );
             ?>
             <p class="oliforge-lede">
                 <?php
                 if ( empty( $s['enabled'] ) ) {
-                    esc_html_e( 'Protection is currently disabled.', 'oliforge-cf7-submission-guard' );
+                    esc_html_e( 'Protection is currently disabled.', 'oliforge-submission-guard-for-contact-form-7' );
                 } elseif ( 'monitor' === $s['mode'] ) {
-                    esc_html_e( 'Protection is enabled in monitor mode: rule matches are logged but submissions are not blocked.', 'oliforge-cf7-submission-guard' );
+                    esc_html_e( 'Protection is enabled in monitor mode: rule matches are logged but submissions are not blocked.', 'oliforge-submission-guard-for-contact-form-7' );
                 } else {
-                    esc_html_e( 'Protection is enabled and enforcing rules on Contact Form 7 submissions.', 'oliforge-cf7-submission-guard' );
+                    esc_html_e( 'Protection is enabled and enforcing rules on Contact Form 7 submissions.', 'oliforge-submission-guard-for-contact-form-7' );
                 }
                 ?>
                 <?php if ( empty( $s['enabled'] ) ) : ?>
-                    <span class="oliforge-badge oliforge-badge--off"><?php esc_html_e( 'Disabled', 'oliforge-cf7-submission-guard' ); ?></span>
+                    <span class="oliforge-badge oliforge-badge--off"><?php esc_html_e( 'Disabled', 'oliforge-submission-guard-for-contact-form-7' ); ?></span>
                 <?php elseif ( 'monitor' === $s['mode'] ) : ?>
-                    <span class="oliforge-badge oliforge-badge--monitor"><?php esc_html_e( 'Monitor only', 'oliforge-cf7-submission-guard' ); ?></span>
+                    <span class="oliforge-badge oliforge-badge--monitor"><?php esc_html_e( 'Monitor only', 'oliforge-submission-guard-for-contact-form-7' ); ?></span>
                 <?php else : ?>
-                    <span class="oliforge-badge oliforge-badge--on"><?php esc_html_e( 'Enforcing', 'oliforge-cf7-submission-guard' ); ?></span>
+                    <span class="oliforge-badge oliforge-badge--on"><?php esc_html_e( 'Enforcing', 'oliforge-submission-guard-for-contact-form-7' ); ?></span>
                 <?php endif; ?>
             </p>
 
             <div class="oliforge-metrics">
-                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['blocked'] ) ); ?></strong><span><?php esc_html_e( 'Blocked, last 30 days', 'oliforge-cf7-submission-guard' ); ?></span></div>
-                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['monitored'] ) ); ?></strong><span><?php esc_html_e( 'Monitored matches, last 30 days', 'oliforge-cf7-submission-guard' ); ?></span></div>
-                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['allowed'] ) ); ?></strong><span><?php esc_html_e( 'Allowed (logged), last 30 days', 'oliforge-cf7-submission-guard' ); ?></span></div>
-                <div class="oliforge-metric"><strong><?php echo empty( $s['rate_limit_enabled'] ) ? esc_html__( 'Off', 'oliforge-cf7-submission-guard' ) : esc_html( $s['rate_limit_count'] . '/' . $s['rate_limit_minutes'] . 'm' ); ?></strong><span><?php esc_html_e( 'Rate limit', 'oliforge-cf7-submission-guard' ); ?></span></div>
+                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['blocked'] ) ); ?></strong><span><?php esc_html_e( 'Blocked, last 30 days', 'oliforge-submission-guard-for-contact-form-7' ); ?></span></div>
+                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['monitored'] ) ); ?></strong><span><?php esc_html_e( 'Monitored matches, last 30 days', 'oliforge-submission-guard-for-contact-form-7' ); ?></span></div>
+                <div class="oliforge-metric"><strong><?php echo esc_html( number_format_i18n( $stats['allowed'] ) ); ?></strong><span><?php esc_html_e( 'Allowed (logged), last 30 days', 'oliforge-submission-guard-for-contact-form-7' ); ?></span></div>
+                <div class="oliforge-metric"><strong><?php echo empty( $s['rate_limit_enabled'] ) ? esc_html__( 'Off', 'oliforge-submission-guard-for-contact-form-7' ) : esc_html( $s['rate_limit_count'] . '/' . $s['rate_limit_minutes'] . 'm' ); ?></strong><span><?php esc_html_e( 'Rate limit', 'oliforge-submission-guard-for-contact-form-7' ); ?></span></div>
             </div>
 
             <div class="oliforge-card-grid">
                 <section class="oliforge-card">
-                    <h2><?php esc_html_e( 'Most triggered rules, last 30 days', 'oliforge-cf7-submission-guard' ); ?></h2>
+                    <h2><?php esc_html_e( 'Most triggered rules, last 30 days', 'oliforge-submission-guard-for-contact-form-7' ); ?></h2>
                     <?php if ( empty( $stats['by_rule'] ) ) : ?>
-                        <p class="description"><?php esc_html_e( 'No rule matches in this period.', 'oliforge-cf7-submission-guard' ); ?></p>
+                        <p class="description"><?php esc_html_e( 'No rule matches in this period.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
                     <?php else : ?>
                         <table class="oliforge-log-table oliforge-log-table--rules">
-                            <thead><tr><th><?php esc_html_e( 'Rule', 'oliforge-cf7-submission-guard' ); ?></th><th><?php esc_html_e( 'Count', 'oliforge-cf7-submission-guard' ); ?></th></tr></thead>
+                            <thead><tr><th><?php esc_html_e( 'Rule', 'oliforge-submission-guard-for-contact-form-7' ); ?></th><th><?php esc_html_e( 'Count', 'oliforge-submission-guard-for-contact-form-7' ); ?></th></tr></thead>
                             <tbody>
                             <?php foreach ( $stats['by_rule'] as $row ) : ?>
                                 <tr><td><code><?php echo esc_html( $row->rule ); ?></code></td><td><?php echo esc_html( number_format_i18n( (int) $row->total ) ); ?></td></tr>
@@ -443,13 +443,13 @@ class OliForge_CF7SG_Settings {
                 </section>
 
                 <section class="oliforge-card">
-                    <h2><?php esc_html_e( 'Recent activity', 'oliforge-cf7-submission-guard' ); ?></h2>
+                    <h2><?php esc_html_e( 'Recent activity', 'oliforge-submission-guard-for-contact-form-7' ); ?></h2>
                     <?php $recent = OliForge_CF7SG_Logger::recent( 10 ); ?>
                     <?php if ( empty( $recent ) ) : ?>
-                        <p class="description"><?php esc_html_e( 'No log entries yet.', 'oliforge-cf7-submission-guard' ); ?></p>
+                        <p class="description"><?php esc_html_e( 'No log entries yet.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
                     <?php else : ?>
                         <table class="oliforge-log-table oliforge-log-table--recent">
-                            <thead><tr><th><?php esc_html_e( 'Date', 'oliforge-cf7-submission-guard' ); ?></th><th><?php esc_html_e( 'Result', 'oliforge-cf7-submission-guard' ); ?></th><th><?php esc_html_e( 'Rule', 'oliforge-cf7-submission-guard' ); ?></th></tr></thead>
+                            <thead><tr><th><?php esc_html_e( 'Date', 'oliforge-submission-guard-for-contact-form-7' ); ?></th><th><?php esc_html_e( 'Result', 'oliforge-submission-guard-for-contact-form-7' ); ?></th><th><?php esc_html_e( 'Rule', 'oliforge-submission-guard-for-contact-form-7' ); ?></th></tr></thead>
                             <tbody>
                             <?php foreach ( $recent as $row ) : ?>
                                 <tr>
@@ -460,7 +460,7 @@ class OliForge_CF7SG_Settings {
                             <?php endforeach; ?>
                             </tbody>
                         </table>
-                        <p><a href="<?php echo esc_url( admin_url( 'admin.php?page=oliforge-cf7-submission-guard-logs' ) ); ?>"><?php esc_html_e( 'View full log', 'oliforge-cf7-submission-guard' ); ?> &rarr;</a></p>
+                        <p><a href="<?php echo esc_url( admin_url( 'admin.php?page=oliforge-cf7-submission-guard-logs' ) ); ?>"><?php esc_html_e( 'View full log', 'oliforge-submission-guard-for-contact-form-7' ); ?> &rarr;</a></p>
                     <?php endif; ?>
                 </section>
             </div>
@@ -476,20 +476,20 @@ class OliForge_CF7SG_Settings {
     private function render_pro_promo() {
         if ( defined( 'OLIFORGE_CF7SG_PRO_VERSION' ) ) { return; }
         $features = array(
-            __( 'Email-domain allowlist: accept submissions only from a chosen set of domains.', 'oliforge-cf7-submission-guard' ),
-            __( 'Auto-updated disposable-email domain list, refreshed daily, with a manual "Refresh now".', 'oliforge-cf7-submission-guard' ),
-            __( 'MX/DNS validation: reject addresses whose domain has no mail server (typos, non-existent domains).', 'oliforge-cf7-submission-guard' ),
-            __( 'Passed journal: a searchable, sortable log of submissions that passed every check.', 'oliforge-cf7-submission-guard' ),
+            __( 'Email-domain allowlist: accept submissions only from a chosen set of domains.', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Auto-updated disposable-email domain list, refreshed daily, with a manual "Refresh now".', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'MX/DNS validation: reject addresses whose domain has no mail server (typos, non-existent domains).', 'oliforge-submission-guard-for-contact-form-7' ),
+            __( 'Passed journal: a searchable, sortable log of submissions that passed every check.', 'oliforge-submission-guard-for-contact-form-7' ),
         );
         ?>
         <section class="oliforge-card oliforge-pro-promo">
-            <h2><?php esc_html_e( 'Get more with Submission Guard Pro', 'oliforge-cf7-submission-guard' ); ?></h2>
+            <h2><?php esc_html_e( 'Get more with Submission Guard Pro', 'oliforge-submission-guard-for-contact-form-7' ); ?></h2>
             <ul class="oliforge-pro-promo__list">
                 <?php foreach ( $features as $feature ) : ?>
                     <li><?php echo esc_html( $feature ); ?></li>
                 <?php endforeach; ?>
             </ul>
-            <p><a class="button button-primary" href="<?php echo esc_url( 'https://oliforge.io/plugins/oliforge-cf7-submission-guard-pro/' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Get a Pro version', 'oliforge-cf7-submission-guard' ); ?></a></p>
+            <p><a class="button button-primary" href="<?php echo esc_url( 'https://oliforge.io/plugins/oliforge-cf7-submission-guard-pro/' ); ?>" target="_blank" rel="noopener"><?php esc_html_e( 'Get a Pro version', 'oliforge-submission-guard-for-contact-form-7' ); ?></a></p>
         </section>
         <?php
     }
@@ -500,31 +500,31 @@ class OliForge_CF7SG_Settings {
         $country_select_active = OliForge_CF7SG_Plugin::country_select_is_active();
         // The "Country" tab (allowed_countries allowlist) is disabled for now:
         // the country list is already governed by the [country_select] field's
-        // own settings (OliForge CF7 Country Select), so a second, separate
+        // own settings (OliForge Country Select for Contact Form 7), so a second, separate
         // allowlist here is redundant. Flip this back to true to bring the
         // tab back if a use case for it comes up again.
         $show_country_tab = false;
         $available_forms = OliForge_CF7SG_Forms::all();
         $form_profiles = OliForge_CF7SG_Forms::for_admin( isset( $s['forms'] ) ? $s['forms'] : array(), $s );
         $tabs = array(
-            'general'  => __( 'General', 'oliforge-cf7-submission-guard' ),
-            'forms'    => __( 'Forms', 'oliforge-cf7-submission-guard' ),
-            'content'  => __( 'Content rules', 'oliforge-cf7-submission-guard' ),
-            'domains'  => __( 'Email domains', 'oliforge-cf7-submission-guard' ),
-            'timing'   => __( 'Rate limit & timing', 'oliforge-cf7-submission-guard' ),
-            'consent'  => __( 'Consent', 'oliforge-cf7-submission-guard' ),
-            'logging'  => __( 'Logging', 'oliforge-cf7-submission-guard' ),
-            'messages' => __( 'Error messages', 'oliforge-cf7-submission-guard' ),
+            'general'  => __( 'General', 'oliforge-submission-guard-for-contact-form-7' ),
+            'forms'    => __( 'Forms', 'oliforge-submission-guard-for-contact-form-7' ),
+            'content'  => __( 'Content rules', 'oliforge-submission-guard-for-contact-form-7' ),
+            'domains'  => __( 'Email domains', 'oliforge-submission-guard-for-contact-form-7' ),
+            'timing'   => __( 'Rate limit & timing', 'oliforge-submission-guard-for-contact-form-7' ),
+            'consent'  => __( 'Consent', 'oliforge-submission-guard-for-contact-form-7' ),
+            'logging'  => __( 'Logging', 'oliforge-submission-guard-for-contact-form-7' ),
+            'messages' => __( 'Error messages', 'oliforge-submission-guard-for-contact-form-7' ),
         );
         if ( $show_country_tab && $country_select_active ) {
             $tabs = array_slice( $tabs, 0, 4, true )
-                + array( 'country' => __( 'Country', 'oliforge-cf7-submission-guard' ) )
+                + array( 'country' => __( 'Country', 'oliforge-submission-guard-for-contact-form-7' ) )
                 + array_slice( $tabs, 4, null, true );
         }
         ?>
         <div class="wrap oliforge-cf7sg-ui">
             <?php
-            $this->render_brand_header( __( 'Settings', 'oliforge-cf7-submission-guard' ) );
+            $this->render_brand_header( __( 'Settings', 'oliforge-submission-guard-for-contact-form-7' ) );
             $this->render_nav_tabs( 'settings' );
             // Core's "Settings saved." message isn't reliably queued for
             // pages under a custom top-level menu, so fall back to our own
@@ -533,11 +533,11 @@ class OliForge_CF7SG_Settings {
             settings_errors();
             $notices = trim( (string) ob_get_clean() );
             if ( '' === $notices && ! empty( $_GET['settings-updated'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-                $notices = '<div class="notice notice-success settings-error is-dismissible"><p><strong>' . esc_html__( 'Settings saved.', 'oliforge-cf7-submission-guard' ) . '</strong></p></div>';
+                $notices = '<div class="notice notice-success settings-error is-dismissible"><p><strong>' . esc_html__( 'Settings saved.', 'oliforge-submission-guard-for-contact-form-7' ) . '</strong></p></div>';
             }
             echo $notices; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- core-generated or escaped above.
             ?>
-            <p class="oliforge-lede"><?php esc_html_e( 'Server-side submission rules for Contact Form 7. Field names must match the CF7 form-tag names.', 'oliforge-cf7-submission-guard' ); ?></p>
+            <p class="oliforge-lede"><?php esc_html_e( 'Server-side submission rules for Contact Form 7. Field names must match the CF7 form-tag names.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
 
             <form method="post" action="options.php">
                 <?php settings_fields( 'oliforge_cf7sg_group' ); ?>
@@ -550,33 +550,33 @@ class OliForge_CF7SG_Settings {
 
                 <div class="oliforge-card">
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-general" data-oliforge-cf7sg-panel="general">
-                        <?php $this->toggle( 'enabled', __( 'Enable protection', 'oliforge-cf7-submission-guard' ), $s ); ?>
+                        <?php $this->toggle( 'enabled', __( 'Enable protection', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
                         <hr class="oliforge-divider">
-                        <?php $this->select_field( 'mode', __( 'Mode', 'oliforge-cf7-submission-guard' ), $s, array( 'enforce' => __( 'Enforce', 'oliforge-cf7-submission-guard' ), 'monitor' => __( 'Monitor only', 'oliforge-cf7-submission-guard' ) ) ); ?>
+                        <?php $this->select_field( 'mode', __( 'Mode', 'oliforge-submission-guard-for-contact-form-7' ), $s, array( 'enforce' => __( 'Enforce', 'oliforge-submission-guard-for-contact-form-7' ), 'monitor' => __( 'Monitor only', 'oliforge-submission-guard-for-contact-form-7' ) ) ); ?>
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-forms" data-oliforge-cf7sg-panel="forms">
                         <?php if ( empty( $available_forms ) ) : ?>
-                            <p><?php esc_html_e( 'No Contact Form 7 forms were found.', 'oliforge-cf7-submission-guard' ); ?></p>
+                            <p><?php esc_html_e( 'No Contact Form 7 forms were found.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
                         <?php else : foreach ( $available_forms as $form_id => $form ) : $profile = $form_profiles[ $form_id ]; ?>
                             <article class="oliforge-form-profile">
                                 <header class="oliforge-form-profile__header">
                                     <div><h2><?php echo esc_html( $form['title'] ); ?></h2><p><code>ID <?php echo esc_html( $form_id ); ?></code><?php if ( $form['locale'] ) : ?> · <?php echo esc_html( $form['locale'] ); ?><?php endif; ?></p></div>
-                                    <label class="oliforge-toggle"><input class="oliforge-toggle__input" type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[forms][<?php echo esc_attr( $form_id ); ?>][enabled]" value="1" <?php checked( ! empty( $profile['enabled'] ) ); ?>><span class="oliforge-toggle__track"><span class="oliforge-toggle__thumb"></span></span><span class="oliforge-toggle__label"><?php esc_html_e( 'Protect this form', 'oliforge-cf7-submission-guard' ); ?></span></label>
+                                    <label class="oliforge-toggle"><input class="oliforge-toggle__input" type="checkbox" name="<?php echo esc_attr( self::OPTION ); ?>[forms][<?php echo esc_attr( $form_id ); ?>][enabled]" value="1" <?php checked( ! empty( $profile['enabled'] ) ); ?>><span class="oliforge-toggle__track"><span class="oliforge-toggle__thumb"></span></span><span class="oliforge-toggle__label"><?php esc_html_e( 'Protect this form', 'oliforge-submission-guard-for-contact-form-7' ); ?></span></label>
                                 </header>
                                 <div class="oliforge-field-row">
-                                    <?php $this->profile_field_select( $form_id, 'name_field', __( 'Name field', 'oliforge-cf7-submission-guard' ), $profile, $form['fields'] ); ?>
-                                    <?php $this->profile_number_field( $form_id, 'name_max', __( 'Maximum name length', 'oliforge-cf7-submission-guard' ), $profile ); ?>
+                                    <?php $this->profile_field_select( $form_id, 'name_field', __( 'Name field', 'oliforge-submission-guard-for-contact-form-7' ), $profile, $form['fields'] ); ?>
+                                    <?php $this->profile_number_field( $form_id, 'name_max', __( 'Maximum name length', 'oliforge-submission-guard-for-contact-form-7' ), $profile ); ?>
                                 </div>
                                 <div class="oliforge-field-row">
-                                    <?php $this->profile_field_select( $form_id, 'message_field', __( 'Message field', 'oliforge-cf7-submission-guard' ), $profile, $form['fields'] ); ?>
-                                    <?php $this->profile_number_field( $form_id, 'message_min', __( 'Minimum message length', 'oliforge-cf7-submission-guard' ), $profile ); ?>
-                                    <?php $this->profile_number_field( $form_id, 'message_max', __( 'Maximum message length (0 = disabled)', 'oliforge-cf7-submission-guard' ), $profile ); ?>
+                                    <?php $this->profile_field_select( $form_id, 'message_field', __( 'Message field', 'oliforge-submission-guard-for-contact-form-7' ), $profile, $form['fields'] ); ?>
+                                    <?php $this->profile_number_field( $form_id, 'message_min', __( 'Minimum message length', 'oliforge-submission-guard-for-contact-form-7' ), $profile ); ?>
+                                    <?php $this->profile_number_field( $form_id, 'message_max', __( 'Maximum message length (0 = disabled)', 'oliforge-submission-guard-for-contact-form-7' ), $profile ); ?>
                                 </div>
                                 <div class="oliforge-field-grid">
-                                    <?php $this->profile_field_select( $form_id, 'email_field', __( 'Email field', 'oliforge-cf7-submission-guard' ), $profile, $form['fields'] ); ?>
-                                    <?php $this->profile_field_select( $form_id, 'consent_field', __( 'Consent field', 'oliforge-cf7-submission-guard' ), $profile, $form['fields'] ); ?>
-                                    <?php $this->profile_field_select( $form_id, 'error_field', __( 'Generic error field', 'oliforge-cf7-submission-guard' ), $profile, $form['fields'], __( 'Used when a matched rule has no field of its own to attach the error to (e.g. rate limiting, too-fast submission).', 'oliforge-cf7-submission-guard' ) ); ?>
+                                    <?php $this->profile_field_select( $form_id, 'email_field', __( 'Email field', 'oliforge-submission-guard-for-contact-form-7' ), $profile, $form['fields'] ); ?>
+                                    <?php $this->profile_field_select( $form_id, 'consent_field', __( 'Consent field', 'oliforge-submission-guard-for-contact-form-7' ), $profile, $form['fields'] ); ?>
+                                    <?php $this->profile_field_select( $form_id, 'error_field', __( 'Generic error field', 'oliforge-submission-guard-for-contact-form-7' ), $profile, $form['fields'], __( 'Used when a matched rule has no field of its own to attach the error to (e.g. rate limiting, too-fast submission).', 'oliforge-submission-guard-for-contact-form-7' ) ); ?>
                                 </div>
                                 <?php
                                 $this->profile_content_fields(
@@ -594,23 +594,23 @@ class OliForge_CF7SG_Settings {
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-content" data-oliforge-cf7sg-panel="content">
-                        <?php $this->toggle( 'block_urls', __( 'Block URLs/domains', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->toggle( 'block_at', __( 'Block @ character', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->toggle( 'block_email_patterns', __( 'Block email patterns', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->toggle( 'block_html', __( 'Block HTML tags', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->toggle( 'block_bbcode', __( 'Block BBCode-like markup', 'oliforge-cf7-submission-guard' ), $s ); ?>
+                        <?php $this->toggle( 'block_urls', __( 'Block URLs/domains', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->toggle( 'block_at', __( 'Block @ character', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->toggle( 'block_email_patterns', __( 'Block email patterns', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->toggle( 'block_html', __( 'Block HTML tags', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->toggle( 'block_bbcode', __( 'Block BBCode-like markup', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
                         <hr class="oliforge-divider">
-                        <?php $this->toggle( 'validate_select_options', __( 'Reject select fields whose value isn\'t one of their own options', 'oliforge-cf7-submission-guard' ), $s, __( 'Applies automatically to every [select] field on a protected form, independent of the fields checked above — catches scripted submissions that bypass the dropdown.', 'oliforge-cf7-submission-guard' ) ); ?>
+                        <?php $this->toggle( 'validate_select_options', __( 'Reject select fields whose value isn\'t one of their own options', 'oliforge-submission-guard-for-contact-form-7' ), $s, __( 'Applies automatically to every [select] field on a protected form, independent of the fields checked above — catches scripted submissions that bypass the dropdown.', 'oliforge-submission-guard-for-contact-form-7' ) ); ?>
                         <hr class="oliforge-divider">
                         <div class="oliforge-field-grid">
-                            <?php $this->text_field( 'max_digits_percent', __( 'Max digits % (0 = disabled)', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 0 ); ?>
-                            <?php $this->text_field( 'max_uppercase_percent', __( 'Max uppercase % (0 = disabled)', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 0 ); ?>
+                            <?php $this->text_field( 'max_digits_percent', __( 'Max digits % (0 = disabled)', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 0 ); ?>
+                            <?php $this->text_field( 'max_uppercase_percent', __( 'Max uppercase % (0 = disabled)', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 0 ); ?>
                         </div>
-                        <?php $this->textarea_field( 'forbidden_words', __( 'Forbidden words/phrases, one per line', 'oliforge-cf7-submission-guard' ), $s, '', 5 ); ?>
+                        <?php $this->textarea_field( 'forbidden_words', __( 'Forbidden words/phrases, one per line', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 5 ); ?>
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-domains" data-oliforge-cf7sg-panel="domains">
-                        <?php $this->textarea_field( 'blocked_domains', __( 'Blocked domains', 'oliforge-cf7-submission-guard' ), $s, __( 'One per line. Subdomains are blocked too.', 'oliforge-cf7-submission-guard' ), 10 ); ?>
+                        <?php $this->textarea_field( 'blocked_domains', __( 'Blocked domains', 'oliforge-submission-guard-for-contact-form-7' ), $s, __( 'One per line. Subdomains are blocked too.', 'oliforge-submission-guard-for-contact-form-7' ), 10 ); ?>
                         <?php
                         /**
                          * Extension point for add-ons (e.g. the Pro plugin) that add
@@ -624,76 +624,76 @@ class OliForge_CF7SG_Settings {
 
                     <?php if ( $show_country_tab && $country_select_active ) : ?>
                         <section class="oliforge-panel" id="oliforge-cf7sg-panel-country" data-oliforge-cf7sg-panel="country">
-                            <?php $this->textarea_field( 'allowed_countries', __( 'Allowed values', 'oliforge-cf7-submission-guard' ), $s, __( 'One per line. If empty, the plugin validates against the CF7 select tag values when available.', 'oliforge-cf7-submission-guard' ), 10 ); ?>
+                            <?php $this->textarea_field( 'allowed_countries', __( 'Allowed values', 'oliforge-submission-guard-for-contact-form-7' ), $s, __( 'One per line. If empty, the plugin validates against the CF7 select tag values when available.', 'oliforge-submission-guard-for-contact-form-7' ), 10 ); ?>
                         </section>
                     <?php endif; ?>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-timing" data-oliforge-cf7sg-panel="timing">
-                        <?php $this->toggle( 'rate_limit_enabled', __( 'Enable IP rate limiting', 'oliforge-cf7-submission-guard' ), $s ); ?>
+                        <?php $this->toggle( 'rate_limit_enabled', __( 'Enable IP rate limiting', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
                         <div class="oliforge-field-grid">
-                            <?php $this->text_field( 'rate_limit_count', __( 'Maximum attempts', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 1 ); ?>
-                            <?php $this->text_field( 'rate_limit_minutes', __( 'Period, minutes', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 1 ); ?>
+                            <?php $this->text_field( 'rate_limit_count', __( 'Maximum attempts', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 1 ); ?>
+                            <?php $this->text_field( 'rate_limit_minutes', __( 'Period, minutes', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 1 ); ?>
                         </div>
                         <hr class="oliforge-divider">
-                        <?php $this->toggle( 'honeypot_enabled', __( 'Enable honeypot field', 'oliforge-cf7-submission-guard' ), $s ); ?>
+                        <?php $this->toggle( 'honeypot_enabled', __( 'Enable honeypot field', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
                         <hr class="oliforge-divider">
-                        <?php $this->toggle( 'min_time_enabled', __( 'Enable minimum completion time', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->text_field( 'min_time_seconds', __( 'Minimum seconds', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 0 ); ?>
+                        <?php $this->toggle( 'min_time_enabled', __( 'Enable minimum completion time', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->text_field( 'min_time_seconds', __( 'Minimum seconds', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 0 ); ?>
                         <hr class="oliforge-divider">
-                        <?php $this->toggle( 'duplicate_enabled', __( 'Block duplicate messages from same IP', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->text_field( 'duplicate_minutes', __( 'Duplicate window, minutes', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 1 ); ?>
+                        <?php $this->toggle( 'duplicate_enabled', __( 'Block duplicate messages from same IP', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->text_field( 'duplicate_minutes', __( 'Duplicate window, minutes', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 1 ); ?>
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-consent" data-oliforge-cf7sg-panel="consent">
-                        <?php $this->toggle( 'required_consent', __( 'Require configured consent field', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <p class="oliforge-field__hint"><?php esc_html_e( 'The consent field is selected separately for each protected form.', 'oliforge-cf7-submission-guard' ); ?></p>
+                        <?php $this->toggle( 'required_consent', __( 'Require configured consent field', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <p class="oliforge-field__hint"><?php esc_html_e( 'The consent field is selected separately for each protected form.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-logging" data-oliforge-cf7sg-panel="logging">
-                        <?php $this->toggle( 'logging_enabled', __( 'Enable security logging', 'oliforge-cf7-submission-guard' ), $s ); ?>
-                        <?php $this->toggle( 'log_success', __( 'Log successful submissions', 'oliforge-cf7-submission-guard' ), $s ); ?>
+                        <?php $this->toggle( 'logging_enabled', __( 'Enable security logging', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
+                        <?php $this->toggle( 'log_success', __( 'Log successful submissions', 'oliforge-submission-guard-for-contact-form-7' ), $s ); ?>
                         <hr class="oliforge-divider">
                         <div class="oliforge-field-grid">
                             <?php
                             $this->select_field(
                                 'ip_storage',
-                                __( 'IP storage', 'oliforge-cf7-submission-guard' ),
+                                __( 'IP storage', 'oliforge-submission-guard-for-contact-form-7' ),
                                 $s,
                                 array(
-                                    'anonymized' => __( 'Anonymized', 'oliforge-cf7-submission-guard' ),
-                                    'full'       => __( 'Full IP', 'oliforge-cf7-submission-guard' ),
-                                    'none'       => __( 'Do not store', 'oliforge-cf7-submission-guard' ),
+                                    'anonymized' => __( 'Anonymized', 'oliforge-submission-guard-for-contact-form-7' ),
+                                    'full'       => __( 'Full IP', 'oliforge-submission-guard-for-contact-form-7' ),
+                                    'none'       => __( 'Do not store', 'oliforge-submission-guard-for-contact-form-7' ),
                                 )
                             );
                             ?>
-                            <?php $this->text_field( 'retention_days', __( 'Retention, days', 'oliforge-cf7-submission-guard' ), $s, '', 'number', 1 ); ?>
+                            <?php $this->text_field( 'retention_days', __( 'Retention, days', 'oliforge-submission-guard-for-contact-form-7' ), $s, '', 'number', 1 ); ?>
                         </div>
                         <?php do_action( 'oliforge_cf7sg_logging_panel', $s ); ?>
-                        <p class="oliforge-field__hint"><?php esc_html_e( 'Name and message contents are never written to the plugin log. The submitted email address itself is never stored either — only its domain (e.g. "example.com"), to help spot patterns.', 'oliforge-cf7-submission-guard' ); ?></p>
+                        <p class="oliforge-field__hint"><?php esc_html_e( 'Name and message contents are never written to the plugin log. The submitted email address itself is never stored either — only its domain (e.g. "example.com"), to help spot patterns.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
                     </section>
 
                     <section class="oliforge-panel" id="oliforge-cf7sg-panel-messages" data-oliforge-cf7sg-panel="messages">
                         <div class="oliforge-field-grid">
                         <?php
                         $labels = array(
-                            'msg_name_max'      => __( 'Name too long', 'oliforge-cf7-submission-guard' ),
-                            'msg_message_min'   => __( 'Message too short', 'oliforge-cf7-submission-guard' ),
-                            'msg_message_max'   => __( 'Message too long', 'oliforge-cf7-submission-guard' ),
-                            'msg_url'           => __( 'URL detected', 'oliforge-cf7-submission-guard' ),
-                            'msg_at'            => __( '@ detected', 'oliforge-cf7-submission-guard' ),
-                            'msg_email_pattern' => __( 'Email pattern detected', 'oliforge-cf7-submission-guard' ),
-                            'msg_html'          => __( 'HTML detected', 'oliforge-cf7-submission-guard' ),
-                            'msg_bbcode'        => __( 'BBCode detected', 'oliforge-cf7-submission-guard' ),
-                            'msg_forbidden'     => __( 'Forbidden content', 'oliforge-cf7-submission-guard' ),
-                            'msg_country'       => __( 'Invalid country', 'oliforge-cf7-submission-guard' ),
-                            'msg_invalid_option' => __( 'Invalid select option', 'oliforge-cf7-submission-guard' ),
-                            'msg_domain'        => __( 'Blocked email domain', 'oliforge-cf7-submission-guard' ),
-                            'msg_rate_limit'    => __( 'Rate limit', 'oliforge-cf7-submission-guard' ),
-                            'msg_too_fast'      => __( 'Too fast', 'oliforge-cf7-submission-guard' ),
-                            'msg_form_expired'  => __( 'Form expired or token missing', 'oliforge-cf7-submission-guard' ),
-                            'msg_honeypot'      => __( 'Honeypot filled', 'oliforge-cf7-submission-guard' ),
-                            'msg_duplicate'     => __( 'Duplicate', 'oliforge-cf7-submission-guard' ),
-                            'msg_consent'       => __( 'Consent missing', 'oliforge-cf7-submission-guard' ),
+                            'msg_name_max'      => __( 'Name too long', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_message_min'   => __( 'Message too short', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_message_max'   => __( 'Message too long', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_url'           => __( 'URL detected', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_at'            => __( '@ detected', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_email_pattern' => __( 'Email pattern detected', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_html'          => __( 'HTML detected', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_bbcode'        => __( 'BBCode detected', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_forbidden'     => __( 'Forbidden content', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_country'       => __( 'Invalid country', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_invalid_option' => __( 'Invalid select option', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_domain'        => __( 'Blocked email domain', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_rate_limit'    => __( 'Rate limit', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_too_fast'      => __( 'Too fast', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_form_expired'  => __( 'Form expired or token missing', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_honeypot'      => __( 'Honeypot filled', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_duplicate'     => __( 'Duplicate', 'oliforge-submission-guard-for-contact-form-7' ),
+                            'msg_consent'       => __( 'Consent missing', 'oliforge-submission-guard-for-contact-form-7' ),
                         );
                         foreach ( $labels as $key => $label ) {
                             $this->text_field( $key, $label, $s );
@@ -758,10 +758,10 @@ class OliForge_CF7SG_Settings {
         ?>
         <div class="wrap oliforge-cf7sg-ui">
             <?php
-            $this->render_brand_header( __( 'Logs', 'oliforge-cf7-submission-guard' ) );
+            $this->render_brand_header( __( 'Logs', 'oliforge-submission-guard-for-contact-form-7' ) );
             $this->render_nav_tabs( 'logs' );
             if ( $views ) :
-                $views = array( 'all' => __( 'All events', 'oliforge-cf7-submission-guard' ) ) + $views;
+                $views = array( 'all' => __( 'All events', 'oliforge-submission-guard-for-contact-form-7' ) ) + $views;
                 ?>
                 <nav class="oliforge-subtabs">
                     <?php foreach ( $views as $slug => $label ) : ?>
@@ -776,31 +776,31 @@ class OliForge_CF7SG_Settings {
                 return;
             }
             ?>
-            <p class="oliforge-lede"><?php esc_html_e( 'Name and message contents are never stored; the email address itself is never stored either, only its domain.', 'oliforge-cf7-submission-guard' ); ?></p>
+            <p class="oliforge-lede"><?php esc_html_e( 'Name and message contents are never stored; the email address itself is never stored either, only its domain.', 'oliforge-submission-guard-for-contact-form-7' ); ?></p>
 
             <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" onsubmit="return confirm('Clear all Submission Guard logs?');">
                 <input type="hidden" name="action" value="oliforge_cf7sg_clear_logs">
                 <?php wp_nonce_field( 'oliforge_cf7sg_clear_logs' ); ?>
-                <?php submit_button( __( 'Clear all logs', 'oliforge-cf7-submission-guard' ), 'delete', 'submit', false ); ?>
+                <?php submit_button( __( 'Clear all logs', 'oliforge-submission-guard-for-contact-form-7' ), 'delete', 'submit', false ); ?>
             </form>
 
             <div class="oliforge-card oliforge-card--table">
                 <table class="oliforge-log-table oliforge-log-table--full">
                     <thead>
                         <tr>
-                            <th><?php esc_html_e( 'Date', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'Form', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'Result', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'Rule', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'Field', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'Email domain', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'IP', 'oliforge-cf7-submission-guard' ); ?></th>
-                            <th><?php esc_html_e( 'User agent', 'oliforge-cf7-submission-guard' ); ?></th>
+                            <th><?php esc_html_e( 'Date', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'Form', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'Result', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'Rule', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'Field', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'Email domain', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'IP', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
+                            <th><?php esc_html_e( 'User agent', 'oliforge-submission-guard-for-contact-form-7' ); ?></th>
                         </tr>
                     </thead>
                     <tbody>
                     <?php if ( ! $rows ) : ?>
-                        <tr><td colspan="8"><?php esc_html_e( 'No log entries.', 'oliforge-cf7-submission-guard' ); ?></td></tr>
+                        <tr><td colspan="8"><?php esc_html_e( 'No log entries.', 'oliforge-submission-guard-for-contact-form-7' ); ?></td></tr>
                     <?php else : foreach ( $rows as $row ) : ?>
                         <tr>
                             <td><?php echo esc_html( $row->created_at ); ?></td>
@@ -829,14 +829,14 @@ class OliForge_CF7SG_Settings {
                 'next_text' => '&raquo;',
             ) );
             if ( $links ) : ?>
-                <div class="tablenav"><div class="tablenav-pages"><span class="displaying-num"><?php echo esc_html( sprintf( /* translators: %s: number of log entries */ _n( '%s item', '%s items', $total, 'oliforge-cf7-submission-guard' ), number_format_i18n( $total ) ) ); ?></span> <?php echo wp_kses_post( $links ); ?></div></div>
+                <div class="tablenav"><div class="tablenav-pages"><span class="displaying-num"><?php echo esc_html( sprintf( /* translators: %s: number of log entries */ _n( '%s item', '%s items', $total, 'oliforge-submission-guard-for-contact-form-7' ), number_format_i18n( $total ) ) ); ?></span> <?php echo wp_kses_post( $links ); ?></div></div>
             <?php endif; ?>
         </div>
         <?php
     }
 
     public function clear_logs() {
-        if ( ! current_user_can( 'manage_options' ) ) { wp_die( esc_html__( 'Unauthorized.', 'oliforge-cf7-submission-guard' ) ); }
+        if ( ! current_user_can( 'manage_options' ) ) { wp_die( esc_html__( 'Unauthorized.', 'oliforge-submission-guard-for-contact-form-7' ) ); }
         check_admin_referer( 'oliforge_cf7sg_clear_logs' );
         OliForge_CF7SG_Logger::clear();
         wp_safe_redirect( add_query_arg( array( 'page' => 'oliforge-cf7-submission-guard-logs' ), admin_url( 'admin.php' ) ) );

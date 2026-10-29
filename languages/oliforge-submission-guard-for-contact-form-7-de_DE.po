@@ -1,8 +1,8 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OliForge CF7 Submission Guard 0.4.5\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oliforge-cf7-submission-guard\n"
+"Project-Id-Version: OliForge Submission Guard for Contact Form 7 0.4.5\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/oliforge-submission-guard-for-contact-form-7\n"
 "POT-Creation-Date: 2026-10-13T08:58:51+00:00\n"
 "PO-Revision-Date: 2026-09-18 10:39+0000\n"
 "Last-Translator: OliForge <support@oliforge.com>\n"
@@ -12,22 +12,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Domain: oliforge-cf7-submission-guard\n"
+"X-Domain: oliforge-submission-guard-for-contact-form-7\n"
 "X-Generator: manual\n"
 
 #. Plugin Name of the plugin
-#: oliforge-cf7-submission-guard.php
+#: oliforge-submission-guard-for-contact-form-7.php
 #: includes/class-oliforge-cf7sg-settings.php:84
-msgid "OliForge CF7 Submission Guard"
-msgstr "OliForge CF7 Submission Guard"
+msgid "OliForge Submission Guard for Contact Form 7"
+msgstr "OliForge Submission Guard for Contact Form 7"
 
 #. Plugin URI of the plugin
-#: oliforge-cf7-submission-guard.php
+#: oliforge-submission-guard-for-contact-form-7.php
 msgid "https://oliforge.io/plugins/oliforge-cf7-submission-guard/"
 msgstr ""
 
 #. Description of the plugin
-#: oliforge-cf7-submission-guard.php
+#: oliforge-submission-guard-for-contact-form-7.php
 msgid ""
 "Configurable server-side submission validation and lightweight logging for "
 "Contact Form 7."
@@ -36,7 +36,7 @@ msgstr ""
 "schlankes Logging für Contact Form 7."
 
 #. Author of the plugin
-#: oliforge-cf7-submission-guard.php
+#: oliforge-submission-guard-for-contact-form-7.php
 #: includes/class-oliforge-cf7sg-settings.php:356
 #: includes/class-oliforge-cf7sg-settings.php:358
 msgid "OliForge"
@@ -50,10 +50,10 @@ msgstr "Formular %s"
 
 #: includes/class-oliforge-cf7sg-plugin.php:76
 msgid ""
-"OliForge CF7 Submission Guard requires Contact Form 7 to be installed and "
+"OliForge Submission Guard for Contact Form 7 requires Contact Form 7 to be installed and "
 "active."
 msgstr ""
-"OliForge CF7 Submission Guard erfordert, dass Contact Form 7 installiert und"
+"OliForge Submission Guard for Contact Form 7 erfordert, dass Contact Form 7 installiert und"
 " aktiviert ist."
 
 #: includes/class-oliforge-cf7sg-settings.php:85
@@ -62,8 +62,8 @@ msgid "Submission Guard"
 msgstr "Submission Guard"
 
 #: includes/class-oliforge-cf7sg-settings.php:94
-msgid "OliForge CF7 Submission Guard Dashboard"
-msgstr "OliForge CF7 Submission Guard – Dashboard"
+msgid "OliForge Submission Guard for Contact Form 7 Dashboard"
+msgstr "OliForge Submission Guard for Contact Form 7 – Dashboard"
 
 #: includes/class-oliforge-cf7sg-settings.php:95
 #: includes/class-oliforge-cf7sg-settings.php:376
@@ -72,8 +72,8 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: includes/class-oliforge-cf7sg-settings.php:102
-msgid "OliForge CF7 Submission Guard Settings"
-msgstr "OliForge CF7 Submission Guard – Einstellungen"
+msgid "OliForge Submission Guard for Contact Form 7 Settings"
+msgstr "OliForge Submission Guard for Contact Form 7 – Einstellungen"
 
 #: includes/class-oliforge-cf7sg-settings.php:103
 #: includes/class-oliforge-cf7sg-settings.php:377
@@ -82,8 +82,8 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 #: includes/class-oliforge-cf7sg-settings.php:110
-msgid "OliForge CF7 Submission Guard Logs"
-msgstr "OliForge CF7 Submission Guard – Protokolle"
+msgid "OliForge Submission Guard for Contact Form 7 Logs"
+msgstr "OliForge Submission Guard for Contact Form 7 – Protokolle"
 
 #: includes/class-oliforge-cf7sg-settings.php:111
 #: includes/class-oliforge-cf7sg-settings.php:378
@@ -614,6 +614,6 @@ msgstr "Nicht autorisiert."
 msgid "Leave this field empty"
 msgstr "Dieses Feld leer lassen"
 
-#: oliforge-cf7-submission-guard.php:33
+#: oliforge-submission-guard-for-contact-form-7.php:33
 msgid "Upgrade to Pro"
 msgstr "Auf Pro upgraden"

@@ -22,7 +22,7 @@ final class OliForge_CF7SG_Plugin {
     }
 
     public function init() {
-        load_plugin_textdomain( 'oliforge-cf7-submission-guard', false, dirname( plugin_basename( OLIFORGE_CF7SG_FILE ) ) . '/languages' );
+        load_plugin_textdomain( 'oliforge-submission-guard-for-contact-form-7', false, dirname( plugin_basename( OLIFORGE_CF7SG_FILE ) ) . '/languages' );
 
         if ( is_admin() ) {
             $this->maybe_upgrade();
@@ -37,7 +37,7 @@ final class OliForge_CF7SG_Plugin {
     }
 
     /**
-     * Whether the optional OliForge CF7 Country Select integration is active.
+     * Whether the optional OliForge Country Select for Contact Form 7 integration is active.
      *
      * The filter allows compatibility with a renamed entry file without making
      * country validation run merely because similarly named form tags exist.
@@ -53,7 +53,7 @@ final class OliForge_CF7SG_Plugin {
 
         $plugin_file = (string) apply_filters(
             'oliforge_cf7sg_country_select_plugin_file',
-            'oliforge-cf7-country-select/oliforge-cf7-country-select.php'
+            'oliforge-country-select-for-contact-form-7/oliforge-country-select-for-contact-form-7.php'
         );
 
         return '' !== $plugin_file && is_plugin_active( $plugin_file );
@@ -73,7 +73,7 @@ final class OliForge_CF7SG_Plugin {
         if ( ! current_user_can( 'activate_plugins' ) ) {
             return;
         }
-        echo '<div class="notice notice-warning"><p>' . esc_html__( 'OliForge CF7 Submission Guard requires Contact Form 7 to be installed and active.', 'oliforge-cf7-submission-guard' ) . '</p></div>';
+        echo '<div class="notice notice-warning"><p>' . esc_html__( 'OliForge Submission Guard for Contact Form 7 requires Contact Form 7 to be installed and active.', 'oliforge-submission-guard-for-contact-form-7' ) . '</p></div>';
     }
 
     public static function activate() {

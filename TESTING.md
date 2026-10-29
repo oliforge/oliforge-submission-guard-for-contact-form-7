@@ -1,4 +1,4 @@
-# OliForge CF7 Submission Guard v0.4.5 — smoke test
+# OliForge Submission Guard for Contact Form 7 v0.4.6 — smoke test
 
 Use a Contact Form 7 form. Enable it under Submission Guard and map its fields first; newly discovered forms stay disabled until enabled.
 
@@ -23,7 +23,7 @@ Use a Contact Form 7 form. Enable it under Submission Guard and map its fields f
 14. A newly created CF7 form appears in settings disabled and is not validated until enabled.
 15. Two enabled forms with different length rules each apply their own rules.
 
-## Country fields (requires OliForge CF7 Country Select)
+## Country fields (requires OliForge Country Select for Contact Form 7)
 
 16. Every `country_select` field on a form is validated; a value outside the field's allowed set is rejected (`invalid_country`).
 17. With two country fields on one form, each is checked independently.
@@ -37,7 +37,7 @@ Use a Contact Form 7 form. Enable it under Submission Guard and map its fields f
 22. "Clear all logs" removes blocked/monitored entries only; passed entries (Pro) are kept.
 23. Saving settings shows the "Settings saved." notice, which dismisses after 5 seconds.
 
-## Pro add-on (OliForge CF7 Submission Guard Pro; requires free 0.4.0+)
+## Pro add-on (OliForge Submission Guard Pro for Contact Form 7; requires free 0.4.0+)
 
 24. Without the free plugin, or with a free version older than 0.4.0, Pro shows an admin error notice and does not load its features.
 25. Allowlist: an email from a domain outside the allowlist is rejected; one inside it passes.

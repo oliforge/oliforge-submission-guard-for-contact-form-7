@@ -21,7 +21,7 @@ class OliForge_CF7SG_Validator {
         if ( ! $profile ) { return $html; }
         if ( ! empty( $this->settings['honeypot_enabled'] ) ) {
             // A field people never see; bots that fill every input give themselves away.
-            $html .= '<div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>' . esc_html__( 'Leave this field empty', 'oliforge-cf7-submission-guard' ) . '<input type="text" name="oliforge_cf7sg_website" value="" tabindex="-1" autocomplete="off"></label></div>';
+            $html .= '<div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>' . esc_html__( 'Leave this field empty', 'oliforge-submission-guard-for-contact-form-7' ) . '<input type="text" name="oliforge_cf7sg_website" value="" tabindex="-1" autocomplete="off"></label></div>';
         }
         if ( empty( $this->settings['min_time_enabled'] ) ) { return $html; }
         $form_id = $this->numeric_form_id();
