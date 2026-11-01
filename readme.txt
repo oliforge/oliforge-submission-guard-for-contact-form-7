@@ -5,7 +5,7 @@ Requires at least: 6.2
 Requires PHP: 7.4
 Requires Plugins: contact-form-7
 Tested up to: 7.1
-Stable tag: 0.4.6
+Stable tag: 0.4.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,7 +36,15 @@ Contact Form 7 itself recommends combining several protections instead of relyin
 * A hidden honeypot field that catches simple bots.
 * Monitor mode, which records rule matches without rejecting the submission.
 
-Logs are lightweight: they record the form (shown by its Contact Form 7 title), the rule that matched and the result, and are paginated in wp-admin. By default the plugin does not store submitted names, email addresses or message contents.
+Logs are lightweight and paginated in wp-admin. Each entry records the date, the form (shown by its Contact Form 7 title), the result, the rule that matched, the name of the field involved, the domain part of the sender's email address, the visitor's browser user-agent and an IP value. By default the plugin does not store submitted names, full email addresses or message contents.
+
+= Privacy =
+
+* The IP value is pseudonymized by default: a keyed hash of the address is stored, not the address itself. You can switch to full IP storage or to no IP storage at all (Settings → Logging).
+* Log entries are deleted automatically after the retention period you set (30 days by default), and "Clear all logs" removes them immediately.
+* The rate limiter keeps a hashed visitor/form key with an attempt counter for the length of the rate-limit window only.
+* If you choose full IP storage, mention it in your privacy policy. The plugin adds a suggested paragraph under Settings → Privacy.
+* Nothing is sent to an external service.
 
 = Extending the plugin =
 
@@ -55,6 +63,11 @@ The plugin exposes hooks for add-ons such as OliForge Submission Guard Pro for C
 3. The log: which form, which rule and what result, without storing names, email addresses or message contents.
 
 == Changelog ==
+
+= 0.4.7 =
+* The readme now lists exactly what the log stores (date, form, result, rule, field name, email domain, user-agent and a pseudonymized IP value) and how to change or disable it.
+* Added a suggested paragraph for the site's privacy policy (Settings → Privacy).
+* Updated the version in the translation files.
 
 = 0.4.6 =
 * Renamed to "OliForge Submission Guard for Contact Form 7" and moved to the matching text domain and plugin file for the WordPress.org directory. Menu pages, settings and stored data are unchanged.
@@ -79,7 +92,7 @@ The plugin exposes hooks for add-ons such as OliForge Submission Guard Pro for C
 * Database queries now pass table names through the `%i` identifier placeholder of `$wpdb->prepare()` instead of interpolating them into the SQL string (requires WordPress 6.2+, already the minimum).
 * Documented why the plugin's direct queries against its own log and rate-limit tables are intentional, and why submitted form values are read without a nonce (the request is handled by Contact Form 7).
 * `uninstall.php` no longer defines global variables; it drops both custom tables through a prefixed function.
-* Cleared all Plugin Check findings except the discouraged `load_plugin_textdomain()` call.
+* Cleaned up the code against the WordPress Plugin Check rules.
 
 = 0.4.1 =
 * Added an "Upgrade to Pro" link in the Plugins list (hidden once the Pro add-on is active).

@@ -25,6 +25,7 @@ final class OliForge_CF7SG_Plugin {
         load_plugin_textdomain( 'oliforge-submission-guard-for-contact-form-7', false, dirname( plugin_basename( OLIFORGE_CF7SG_FILE ) ) . '/languages' );
 
         if ( is_admin() ) {
+            add_action( 'admin_init', array( $this, 'add_privacy_policy_content' ) );
             $this->maybe_upgrade();
             new OliForge_CF7SG_Settings();
         }
@@ -34,6 +35,16 @@ final class OliForge_CF7SG_Plugin {
         } elseif ( is_admin() ) {
             add_action( 'admin_notices', array( $this, 'cf7_missing_notice' ) );
         }
+    }
+
+    /**
+     * Suggested privacy-policy text (Settings > Privacy > Policy Guide).
+     */
+    public function add_privacy_policy_content() {
+        if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) { return; }
+        $text = '<h2>' . esc_html__( 'Contact form submission checks', 'oliforge-submission-guard-for-contact-form-7' ) . '</h2>'
+            . '<p>' . esc_html__( 'Suggested text: When you submit a contact form, the site checks the submission against its own rules on the server. If logging is enabled, the site records the date, the form, the result, the rule that matched, the name of the field involved, the domain part of your email address, your browser user-agent and a pseudonymized IP value (or the full IP address if the site owner chose to store it). The name, the full email address and the message are not stored in this log. Log entries are deleted automatically after the retention period. No data is sent to an external service.', 'oliforge-submission-guard-for-contact-form-7' ) . '</p>';
+        wp_add_privacy_policy_content( 'OliForge Submission Guard for Contact Form 7', wp_kses_post( wpautop( $text, false ) ) );
     }
 
     /**
