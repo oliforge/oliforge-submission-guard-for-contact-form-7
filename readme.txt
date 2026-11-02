@@ -5,7 +5,7 @@ Requires at least: 6.2
 Requires PHP: 7.4
 Requires Plugins: contact-form-7
 Tested up to: 7.1
-Stable tag: 0.4.7
+Stable tag: 0.4.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -63,6 +63,9 @@ The plugin exposes hooks for add-ons such as OliForge Submission Guard Pro for C
 3. The log: which form, which rule and what result, without storing names, email addresses or message contents.
 
 == Changelog ==
+
+= 0.4.8 =
+* Translations are now delivered through WordPress.org language packs; the plugin no longer bundles translation files or loads them itself.
 
 = 0.4.7 =
 * The readme now lists exactly what the log stores (date, form, result, rule, field name, email domain, user-agent and a pseudonymized IP value) and how to change or disable it.

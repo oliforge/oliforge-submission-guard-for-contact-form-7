@@ -12,18 +12,11 @@ final class OliForge_CF7SG_Plugin {
     }
 
     public function boot() {
-        // Since WordPress 6.7, loading a textdomain before the init hook
-        // can trigger a "_load_textdomain_just_in_time was called
-        // incorrectly" notice — load_plugin_textdomain() is the first
-        // statement in init() below, so moving the whole callback here is
-        // enough to keep it clear of that without splitting the method.
         add_action( 'init', array( $this, 'init' ) );
         add_action( 'oliforge_cf7sg_daily_cleanup', array( 'OliForge_CF7SG_Logger', 'cleanup_expired' ) );
     }
 
     public function init() {
-        load_plugin_textdomain( 'oliforge-submission-guard-for-contact-form-7', false, dirname( plugin_basename( OLIFORGE_CF7SG_FILE ) ) . '/languages' );
-
         if ( is_admin() ) {
             add_action( 'admin_init', array( $this, 'add_privacy_policy_content' ) );
             $this->maybe_upgrade();
