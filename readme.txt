@@ -58,9 +58,12 @@ The plugin exposes hooks for add-ons such as OliForge Submission Guard Pro for C
 
 == Screenshots ==
 
-1. The dashboard: blocked and monitored submissions, the most triggered rules and recent activity.
-2. Content rules: block links, email patterns and HTML, and reject select values that are not one of the field's options.
-3. The log: which form, which rule and what result, without storing names, email addresses or message contents.
+1. The dashboard shows blocked submissions, the most triggered rules and recent activity.
+2. Choose which Contact Form 7 forms to protect and map their name, email and message fields.
+3. Content rules: block links, email patterns, HTML, BBCode and forbidden words in the fields you choose.
+4. Rate limit and timing: limit submissions per visitor and reject forms sent too quickly.
+5. The log: which form, which rule and what result, without storing names, email addresses or message contents.
+6. General settings: turn protection on or off and choose Enforce or Monitor only.
 
 == Changelog ==
 
