@@ -5,7 +5,7 @@ Requires at least: 6.2
 Requires PHP: 7.4
 Requires Plugins: contact-form-7
 Tested up to: 7.1
-Stable tag: 0.4.8
+Stable tag: 0.4.9
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ A local, transparent policy firewall for Contact Form 7: checks every submission
 
 == Description ==
 
-OliForge Submission Guard for Contact Form 7 is a local, transparent policy firewall for Contact Form 7. It does not only look for spam: it checks that every submission follows the rules of the specific form it was sent through, entirely on your own server, before any mail is sent.
+OliForge Submission Guard for Contact Form 7 is a local, transparent policy firewall for Contact Form 7. It goes beyond looking for spam: it checks that every submission follows the rules of the specific form it was sent through, entirely on your own server, before any mail is sent.
 
 = What makes it different =
 
@@ -58,14 +58,14 @@ The plugin exposes hooks for add-ons such as OliForge Submission Guard Pro for C
 
 == Screenshots ==
 
-1. The dashboard shows blocked submissions, the most triggered rules and recent activity.
-2. Choose which Contact Form 7 forms to protect and map their name, email and message fields.
-3. Content rules: block links, email patterns, HTML, BBCode and forbidden words in the fields you choose.
-4. Rate limit and timing: limit submissions per visitor and reject forms sent too quickly.
-5. The log: which form, which rule and what result, without storing names, email addresses or message contents.
-6. General settings: turn protection on or off and choose Enforce or Monitor only.
+1. The dashboard: blocked and monitored submissions, the most triggered rules and recent activity.
+2. Content rules: block links, email patterns and HTML, and reject select values that are not one of the field's options.
+3. The log: which form, which rule and what result, without storing names, email addresses or message contents.
 
 == Changelog ==
+
+= 0.4.9 =
+* Moved the settings tab script into the enqueued admin script and sanitized submitted field values passed to the `oliforge_cf7sg_submission_passed` action.
 
 = 0.4.8 =
 * Translations are now delivered through WordPress.org language packs; the plugin no longer bundles translation files or loads them itself.

@@ -468,7 +468,7 @@ class OliForge_CF7SG_Validator {
         $fields = array();
         foreach ( $_POST as $key => $value ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing -- Contact Form 7 validates the form request.
             if ( 0 === strpos( (string) $key, '_' ) ) { continue; }
-            $fields[ sanitize_key( $key ) ] = $this->raw( $key );
+            $fields[ sanitize_key( $key ) ] = sanitize_textarea_field( $this->raw( $key ) );
         }
         /**
          * Fires for every submission that passed all checks and was sent,
